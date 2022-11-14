@@ -11,6 +11,6 @@ class HiveService {
     Hive.registerAdapter(JokeAdapter());
   }
 
-  static Future<void> openBox(String name) => Hive.openBox<Joke>(name);
-  static Box<Joke> getBox(String name) => Hive.box<Joke>(name);
+  static Future<void> openBox<T>(String name) => Hive.openBox<T>(name);
+  static Box<T> getBox<T>(String name) => Hive.box<T>(name);
 }
