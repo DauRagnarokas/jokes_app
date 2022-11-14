@@ -49,6 +49,7 @@ class LightTheme {
 
   static final AppBarTheme _appBarTheme = AppBarTheme(
       color: skinColor,
+      centerTitle: true,
       titleTextStyle: TextStyle(
         color: Colors.black,
         fontSize: 32,
