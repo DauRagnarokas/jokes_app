@@ -17,49 +17,49 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$RandomJokeCategoryState<T> {
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function(T data) data,
-    required TResult Function(String message, StackTrace stack) error,
+    required TResult Function(Object error, StackTrace stack) error,
     required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function(T data)? data,
-    TResult? Function(String message, StackTrace stack)? error,
+    TResult? Function(Object error, StackTrace stack)? error,
     TResult? Function()? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function(T data)? data,
-    TResult Function(String message, StackTrace stack)? error,
+    TResult Function(Object error, StackTrace stack)? error,
     TResult Function()? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_Initial<T> value) $default, {
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
     required TResult Function(_Data<T> value) data,
     required TResult Function(_Error<T> value) error,
     required TResult Function(_Loading<T> value) loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_Initial<T> value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
     TResult? Function(_Data<T> value)? data,
     TResult? Function(_Error<T> value)? error,
     TResult? Function(_Loading<T> value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_Initial<T> value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
     TResult Function(_Data<T> value)? data,
     TResult Function(_Error<T> value)? error,
     TResult Function(_Loading<T> value)? loading,
@@ -111,7 +111,7 @@ class _$_Initial<T> implements _Initial<T> {
 
   @override
   String toString() {
-    return 'RandomJokeCategoryState<$T>()';
+    return 'RandomJokeCategoryState<$T>.initial()';
   }
 
   @override
@@ -125,74 +125,74 @@ class _$_Initial<T> implements _Initial<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function(T data) data,
-    required TResult Function(String message, StackTrace stack) error,
+    required TResult Function(Object error, StackTrace stack) error,
     required TResult Function() loading,
   }) {
-    return $default();
+    return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function(T data)? data,
-    TResult? Function(String message, StackTrace stack)? error,
+    TResult? Function(Object error, StackTrace stack)? error,
     TResult? Function()? loading,
   }) {
-    return $default?.call();
+    return initial?.call();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function(T data)? data,
-    TResult Function(String message, StackTrace stack)? error,
+    TResult Function(Object error, StackTrace stack)? error,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
-    if ($default != null) {
-      return $default();
+    if (initial != null) {
+      return initial();
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_Initial<T> value) $default, {
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
     required TResult Function(_Data<T> value) data,
     required TResult Function(_Error<T> value) error,
     required TResult Function(_Loading<T> value) loading,
   }) {
-    return $default(this);
+    return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_Initial<T> value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
     TResult? Function(_Data<T> value)? data,
     TResult? Function(_Error<T> value)? error,
     TResult? Function(_Loading<T> value)? loading,
   }) {
-    return $default?.call(this);
+    return initial?.call(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_Initial<T> value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
     TResult Function(_Data<T> value)? data,
     TResult Function(_Error<T> value)? error,
     TResult Function(_Loading<T> value)? loading,
     required TResult orElse(),
   }) {
-    if ($default != null) {
-      return $default(this);
+    if (initial != null) {
+      return initial(this);
     }
     return orElse();
   }
@@ -264,10 +264,10 @@ class _$_Data<T> implements _Data<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function(T data) data,
-    required TResult Function(String message, StackTrace stack) error,
+    required TResult Function(Object error, StackTrace stack) error,
     required TResult Function() loading,
   }) {
     return data(this.data);
@@ -275,10 +275,10 @@ class _$_Data<T> implements _Data<T> {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function(T data)? data,
-    TResult? Function(String message, StackTrace stack)? error,
+    TResult? Function(Object error, StackTrace stack)? error,
     TResult? Function()? loading,
   }) {
     return data?.call(this.data);
@@ -286,10 +286,10 @@ class _$_Data<T> implements _Data<T> {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function(T data)? data,
-    TResult Function(String message, StackTrace stack)? error,
+    TResult Function(Object error, StackTrace stack)? error,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
@@ -301,8 +301,8 @@ class _$_Data<T> implements _Data<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_Initial<T> value) $default, {
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
     required TResult Function(_Data<T> value) data,
     required TResult Function(_Error<T> value) error,
     required TResult Function(_Loading<T> value) loading,
@@ -312,8 +312,8 @@ class _$_Data<T> implements _Data<T> {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_Initial<T> value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
     TResult? Function(_Data<T> value)? data,
     TResult? Function(_Error<T> value)? error,
     TResult? Function(_Loading<T> value)? loading,
@@ -323,8 +323,8 @@ class _$_Data<T> implements _Data<T> {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_Initial<T> value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
     TResult Function(_Data<T> value)? data,
     TResult Function(_Error<T> value)? error,
     TResult Function(_Loading<T> value)? loading,
@@ -352,7 +352,7 @@ abstract class _$$_ErrorCopyWith<T, $Res> {
           _$_Error<T> value, $Res Function(_$_Error<T>) then) =
       __$$_ErrorCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({String message, StackTrace stack});
+  $Res call({Object error, StackTrace stack});
 }
 
 /// @nodoc
@@ -365,14 +365,11 @@ class __$$_ErrorCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = null,
+    Object? error = null,
     Object? stack = null,
   }) {
     return _then(_$_Error<T>(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == error ? _value.error : error,
       null == stack
           ? _value.stack
           : stack // ignore: cast_nullable_to_non_nullable
@@ -384,16 +381,16 @@ class __$$_ErrorCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$_Error<T> implements _Error<T> {
-  const _$_Error(this.message, this.stack);
+  const _$_Error(this.error, this.stack);
 
   @override
-  final String message;
+  final Object error;
   @override
   final StackTrace stack;
 
   @override
   String toString() {
-    return 'RandomJokeCategoryState<$T>.error(message: $message, stack: $stack)';
+    return 'RandomJokeCategoryState<$T>.error(error: $error, stack: $stack)';
   }
 
   @override
@@ -401,12 +398,13 @@ class _$_Error<T> implements _Error<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Error<T> &&
-            (identical(other.message, message) || other.message == message) &&
+            const DeepCollectionEquality().equals(other.error, error) &&
             (identical(other.stack, stack) || other.stack == stack));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message, stack);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(error), stack);
 
   @JsonKey(ignore: true)
   @override
@@ -416,45 +414,45 @@ class _$_Error<T> implements _Error<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function(T data) data,
-    required TResult Function(String message, StackTrace stack) error,
+    required TResult Function(Object error, StackTrace stack) error,
     required TResult Function() loading,
   }) {
-    return error(message, stack);
+    return error(this.error, stack);
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function(T data)? data,
-    TResult? Function(String message, StackTrace stack)? error,
+    TResult? Function(Object error, StackTrace stack)? error,
     TResult? Function()? loading,
   }) {
-    return error?.call(message, stack);
+    return error?.call(this.error, stack);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function(T data)? data,
-    TResult Function(String message, StackTrace stack)? error,
+    TResult Function(Object error, StackTrace stack)? error,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(message, stack);
+      return error(this.error, stack);
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_Initial<T> value) $default, {
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
     required TResult Function(_Data<T> value) data,
     required TResult Function(_Error<T> value) error,
     required TResult Function(_Loading<T> value) loading,
@@ -464,8 +462,8 @@ class _$_Error<T> implements _Error<T> {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_Initial<T> value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
     TResult? Function(_Data<T> value)? data,
     TResult? Function(_Error<T> value)? error,
     TResult? Function(_Loading<T> value)? loading,
@@ -475,8 +473,8 @@ class _$_Error<T> implements _Error<T> {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_Initial<T> value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
     TResult Function(_Data<T> value)? data,
     TResult Function(_Error<T> value)? error,
     TResult Function(_Loading<T> value)? loading,
@@ -490,10 +488,10 @@ class _$_Error<T> implements _Error<T> {
 }
 
 abstract class _Error<T> implements RandomJokeCategoryState<T> {
-  const factory _Error(final String message, final StackTrace stack) =
+  const factory _Error(final Object error, final StackTrace stack) =
       _$_Error<T>;
 
-  String get message;
+  Object get error;
   StackTrace get stack;
   @JsonKey(ignore: true)
   _$$_ErrorCopyWith<T, _$_Error<T>> get copyWith =>
@@ -537,10 +535,10 @@ class _$_Loading<T> implements _Loading<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function(T data) data,
-    required TResult Function(String message, StackTrace stack) error,
+    required TResult Function(Object error, StackTrace stack) error,
     required TResult Function() loading,
   }) {
     return loading();
@@ -548,10 +546,10 @@ class _$_Loading<T> implements _Loading<T> {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function(T data)? data,
-    TResult? Function(String message, StackTrace stack)? error,
+    TResult? Function(Object error, StackTrace stack)? error,
     TResult? Function()? loading,
   }) {
     return loading?.call();
@@ -559,10 +557,10 @@ class _$_Loading<T> implements _Loading<T> {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function(T data)? data,
-    TResult Function(String message, StackTrace stack)? error,
+    TResult Function(Object error, StackTrace stack)? error,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
@@ -574,8 +572,8 @@ class _$_Loading<T> implements _Loading<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_Initial<T> value) $default, {
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
     required TResult Function(_Data<T> value) data,
     required TResult Function(_Error<T> value) error,
     required TResult Function(_Loading<T> value) loading,
@@ -585,8 +583,8 @@ class _$_Loading<T> implements _Loading<T> {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_Initial<T> value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
     TResult? Function(_Data<T> value)? data,
     TResult? Function(_Error<T> value)? error,
     TResult? Function(_Loading<T> value)? loading,
@@ -596,8 +594,8 @@ class _$_Loading<T> implements _Loading<T> {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_Initial<T> value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
     TResult Function(_Data<T> value)? data,
     TResult Function(_Error<T> value)? error,
     TResult Function(_Loading<T> value)? loading,

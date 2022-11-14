@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:jokes_app/core/widgets/error_handler.dart';
 import 'package:jokes_app/utils/string_extensions.dart';
@@ -12,6 +11,7 @@ import '../../joke_single/view/joke_single_screen.dart';
 import '../../jokes/logic/jokes_providers.dart';
 import '../logic/random_joke_category_providers.dart';
 import '../../../core/widgets/loader.dart';
+import '../logic/random_joke_category_states.dart';
 
 part 'category_button.dart';
 

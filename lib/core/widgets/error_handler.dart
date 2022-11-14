@@ -1,6 +1,17 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:jokes_app/utils/suggestion_exception.dart';
+import 'package:jokes_app/utils/input_exception.dart';
+
+
+String getErrorMessage(Object error) {
+  if (error is DioError) {
+    return error.message;
+  } else if (error is InputException) {
+    return error.message;
+  } else {
+    return error.toString();
+  }
+}
 
 class ErrorHandler extends StatelessWidget {
   ErrorHandler(
@@ -8,20 +19,15 @@ class ErrorHandler extends StatelessWidget {
     this.stackTrace, {
     Key? key,
     this.isSliver = false,
+    this.showMessage = true,
   }) : super(key: key) {
-    if (error is DioError) {
-      message = (error as DioError).response!.data.toString();
-    }
-    if (error is InputException) {
-      message = (error as InputException).message;
-    } else {
-      message = error.toString();
-    }
+    message = getErrorMessage(error);
   }
 
   final Object error;
   final StackTrace stackTrace;
   final bool isSliver;
+  final bool showMessage;
   late final String message;
 
   @override
@@ -32,11 +38,13 @@ class ErrorHandler extends StatelessWidget {
         : _buildMessageView(context);
   }
 
-  Center _buildMessageView(BuildContext context) {
+  Widget _buildMessageView(BuildContext context) {
+    if(!showMessage) return const SizedBox.shrink();
     return Center(
       child: Text(
         message.toString(),
         style: _buildMessageStyle(context),
+        textAlign: TextAlign.center,
       ),
     );
   }
@@ -47,7 +55,10 @@ class ErrorHandler extends StatelessWidget {
       style =
           Theme.of(context).textTheme.headline5!.copyWith(color: Colors.red);
     } else {
-      style = Theme.of(context).textTheme.headline6!.copyWith(color: Colors.red);
+      style = Theme.of(context).textTheme.headline6!.copyWith(
+            color: Colors.red,
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          );
     }
     return style;
   }

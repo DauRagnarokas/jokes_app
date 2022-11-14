@@ -69,7 +69,7 @@ class LightTheme {
     headline5:
         TextStyle(fontSize: 14, fontFamily: GoogleFonts.roboto().fontFamily),
     headline6:
-        TextStyle(fontSize: 32, fontFamily: GoogleFonts.roboto().fontFamily),
+        TextStyle(fontSize: 24, fontFamily: GoogleFonts.roboto().fontFamily),
   );
 
   static const FloatingActionButtonThemeData _floatingActionButtonTheme =

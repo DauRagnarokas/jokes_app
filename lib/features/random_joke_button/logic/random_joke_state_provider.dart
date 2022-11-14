@@ -8,14 +8,20 @@ final randomJokeStateProvider =
         (ref) => _RandomJokeButtonNotifier(ref.read));
 
 class _RandomJokeButtonNotifier extends StateNotifier<RandomJokeState> {
-  _RandomJokeButtonNotifier(this.read) : super(const RandomJokeState());
+  _RandomJokeButtonNotifier(this.read) : super(const RandomJokeState.initial());
 
   final Function(ProviderListenable) read;
 
   request({Function(Joke)? callback}) async {
-    state = const RandomJokeState.loading();
-    final Joke data = await read(getRandomJokeProvider.future);
-    state = RandomJokeState.data(data);
-    callback?.call(data);
+    try {
+      state = const RandomJokeState.loading();
+      final Joke data = await read(getRandomJokeProvider.future);
+      state = RandomJokeState.data(data);
+      callback?.call(data);
+    } catch (error, stack) {
+      state = RandomJokeState.error(error, stack);
+    } finally {
+      state = const RandomJokeState.initial();
+    }
   }
 }

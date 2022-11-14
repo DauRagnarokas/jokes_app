@@ -11,7 +11,7 @@ final randomJokeCategoryStateProvider = StateNotifierProvider.family<
 );
 
 class _RandomJokeCategoryButtonNotifier extends StateNotifier<RandomJokeCategoryState> {
-  _RandomJokeCategoryButtonNotifier(this.read, this.category) : super(const RandomJokeCategoryState());
+  _RandomJokeCategoryButtonNotifier(this.read, this.category) : super(const RandomJokeCategoryState.initial());
 
   final Function(ProviderListenable) read;
   final JokeCategory category;
@@ -19,9 +19,15 @@ class _RandomJokeCategoryButtonNotifier extends StateNotifier<RandomJokeCategory
   request({
     Function(Joke)? callback,
   }) async {
-    state = const RandomJokeCategoryState.loading();
-    final Joke data = await read(getRandomJokeCategoryProvider(category).future);
-    state = RandomJokeCategoryState.data(data);
-    callback?.call(data);
+    try {
+      state = const RandomJokeCategoryState.loading();
+      final Joke data = await read(getRandomJokeCategoryProvider(category).future);
+      state = RandomJokeCategoryState.data(data);
+      callback?.call(data);
+    }  catch (error, stack) {
+      state = RandomJokeCategoryState.error(error, stack);
+    } finally {
+      state = const RandomJokeCategoryState.initial();
+    }
   }
 }

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:jokes_app/utils/suggestion_exception.dart';
+import 'package:jokes_app/utils/input_exception.dart';
 
 import '../models/joke.dart';
 import '../models/joke_category.dart';
@@ -8,13 +8,13 @@ import '../services/dio_service.dart';
 class JokesRepository {
   final _service = DioService();
 
-  Future<List<JokeCategory>> getCategories({CancelToken? cancelToken}) async =>
+  Future<List<JokeCategory>> getCategories() async =>
       _service.getCollection(
         path: 'https://api.chucknorris.io/jokes/categories',
         builder: (dynamic data) => JokeCategory.fromJson(data),
       );
 
-  Future<Joke> getRandomJoke({CancelToken? cancelToken}) async =>
+  Future<Joke> getRandomJoke() async =>
       _service.getSingle(
         path: 'https://api.chucknorris.io/jokes/random',
         builder: (Map<String, dynamic> data) => Joke.fromJson(data),
@@ -22,7 +22,6 @@ class JokesRepository {
 
   Future<Joke> getRandomCategoryJoke({
     required JokeCategory category,
-    CancelToken? cancelToken,
   }) async {
     return _service.getSingle(
       path: 'https://api.chucknorris.io/jokes/random?category=${category.name}',
@@ -32,7 +31,6 @@ class JokesRepository {
 
   Future<List<Joke>> searchJokes({
     String? query,
-    CancelToken? cancelToken,
   }) async {
     try {
       return await _service.getSingle(
@@ -48,8 +46,8 @@ class JokesRepository {
         },
       );
     } on DioError catch (e) {
-      if (e.response != null) {
-        throw InputException(message: e.response!.data['message']);
+      if (e.response?.statusCode == 500) {
+        throw InputException.fromDioMessage(e);
       } else {
         rethrow;
       }

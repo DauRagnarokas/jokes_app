@@ -6,9 +6,8 @@ class DioService {
   Future<List<T>> getCollection<T>({
     required String path,
     required T Function(dynamic data) builder,
-    CancelToken? cancelToken,
   }) async {
-      final Response response = await DioService._instance.get(path, cancelToken: cancelToken);
+      final Response response = await DioService._instance.get(path);
       final List<T> result = [];
       response.data.forEach(
         (element) {
@@ -21,9 +20,8 @@ class DioService {
   Future<T> getSingle<T>({
     required String path,
     required T Function(Map<String, dynamic> data) builder,
-    CancelToken? cancelToken,
   }) async {
-      final Response response = await DioService._instance.get(path, cancelToken: cancelToken);
+      final Response response = await DioService._instance.get(path);
       return builder(response.data);
   }
 }

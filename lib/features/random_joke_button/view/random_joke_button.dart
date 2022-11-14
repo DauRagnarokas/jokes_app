@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../core/widgets/error_handler.dart';
@@ -7,27 +6,33 @@ import '../../../utils/page_route_no_animation.dart';
 import '../../../core/widgets/loader.dart';
 import '../../joke_single/view/joke_single_screen.dart';
 import '../logic/random_joke_state_provider.dart';
+import '../logic/random_joke_states.dart';
 
-class RandomJokeButton extends HookConsumerWidget {
+class RandomJokeButton extends ConsumerWidget {
   const RandomJokeButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final ValueNotifier<bool> isShowing = useState(true);
+    ref.listen<RandomJokeState>(
+      randomJokeStateProvider,
+      (_, state) => state.whenOrNull(
+        error: (error, _) => ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              getErrorMessage(error),
+            ),
+          ),
+        ),
+      ),
+    );
     return ref.watch(randomJokeStateProvider).when(
-          () => _RandomJokeButtonView(isShowing: isShowing.value),
+          initial: () => const _RandomJokeButtonView(),
           data: (data) {
-            Future.delayed(
-                const Duration(seconds: 1), () => isShowing.value = true);
-            return _RandomJokeButtonView(
-                isLoading: false, isShowing: isShowing.value);
+            return const _RandomJokeButtonView();
           },
-          error: (Object error, StackTrace stackTrace) => ErrorHandler(error, stackTrace),
-          loading: () {
-            isShowing.value = false;
-            return _RandomJokeButtonView(
-                isLoading: true, isShowing: isShowing.value);
-          },
+          error: (Object error, StackTrace stackTrace) =>
+              ErrorHandler(error, stackTrace, showMessage: false),
+          loading: () => const _RandomJokeButtonView(isLoading: true),
         );
   }
 }
@@ -35,11 +40,9 @@ class RandomJokeButton extends HookConsumerWidget {
 ///////////////////////////////////////////////////////////////////////////////
 
 class _RandomJokeButtonView extends HookConsumerWidget {
-  const _RandomJokeButtonView(
-      {Key? key, this.isLoading = false, required this.isShowing})
+  const _RandomJokeButtonView({Key? key, this.isLoading = false})
       : super(key: key);
   final bool isLoading;
-  final bool isShowing;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -64,7 +67,6 @@ class _RandomJokeButtonView extends HookConsumerWidget {
               color: Colors.black,
             )
           : Visibility(
-              visible: isShowing,
               child: SizedBox.square(
                 dimension: 40,
                 child: SvgPicture.asset(
