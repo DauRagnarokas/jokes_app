@@ -6,11 +6,11 @@ import '../../../models/joke.dart';
 
 final initHiveProvider = FutureProvider<void>((_) async {
   await HiveService.init();
-  await HiveService.openBox<Joke>(kFavouriteJokes);
+  await HiveService.openBox(kFavouriteJokes);
 });
 
 final favouritesHiveBoxProvider = Provider.autoDispose<Box<Joke>>(
-  (_) => HiveService.getBox<Joke>(kFavouriteJokes),
+  (_) => HiveService.getBox(kFavouriteJokes),
 );
 
 final getFavouriteJokesProvider = Provider.autoDispose<List<Joke>>((ref) {
