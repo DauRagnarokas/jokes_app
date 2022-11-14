@@ -7,21 +7,18 @@ class DioService {
     required String path,
     required T Function(dynamic data) builder,
   }) async {
-      final Response response = await DioService._instance.get(path);
-      final List<T> result = [];
-      response.data.forEach(
-        (element) {
-          result.add(builder(element));
-        },
-      );
-      return result;
+    final Response response = await DioService._instance.get(path);
+    final List<T> result = [
+      for (final item in response.data) builder(item)
+    ];
+    return result;
   }
 
   Future<T> getSingle<T>({
     required String path,
     required T Function(Map<String, dynamic> data) builder,
   }) async {
-      final Response response = await DioService._instance.get(path);
-      return builder(response.data);
+    final Response response = await DioService._instance.get(path);
+    return builder(response.data);
   }
 }

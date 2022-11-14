@@ -36,12 +36,9 @@ class JokesRepository {
       return await _service.getSingle(
         path: 'https://api.chucknorris.io/jokes/search?query=$query',
         builder: (Map<String, dynamic> data) {
-          final List<Joke> items = [];
-          data['result'].forEach(
-            (element) => items.add(
-              Joke.fromJson(element),
-            ),
-          );
+          final List<Joke> items = [
+            for (final item in data['result']) Joke.fromJson(item)
+          ];
           return items;
         },
       );
