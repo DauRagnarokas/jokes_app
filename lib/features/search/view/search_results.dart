@@ -7,7 +7,11 @@ class SearchResults extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final String? searchQuery = ref.watch(searchQueryProvider);
     return ref.watch(searchJokesProvider(searchQuery)).when(
-        data: (List<Joke> data) => _SearchResultsList(items: data),
+        data: (List<Joke> data) {
+          return data.isNotEmpty
+              ? _SearchResultsList(items: data)
+              : const _EmptySearchResultsSliver();
+        },
         error: (Object error, StackTrace stackTrace) => ErrorHandler(
               error,
               stackTrace,
@@ -27,7 +31,7 @@ class _SearchResultsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
-            (context, index) => _buildTile(items[index], context),
+        (context, index) => _buildTile(items[index], context),
         childCount: items.length,
       ),
     );
@@ -40,7 +44,10 @@ class _SearchResultsList extends StatelessWidget {
         onTap: () => Navigator.push(
           context,
           PageRouteNoAnimation(
-            builder: (context) => JokeSingleScreen(joke: joke, title: 'Single Joke',),
+            builder: (context) => JokeSingleScreen(
+              joke: joke,
+              title: 'Single Joke',
+            ),
           ),
         ),
         child: Padding(
@@ -51,6 +58,24 @@ class _SearchResultsList extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             softWrap: false,
           ),
+        ),
+      ),
+    );
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+class _EmptySearchResultsSliver extends StatelessWidget {
+  const _EmptySearchResultsSliver({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverFillRemaining(
+      child: Center(
+        child: Text(
+          'No search results',
+          style: Theme.of(context).textTheme.headline6,
         ),
       ),
     );

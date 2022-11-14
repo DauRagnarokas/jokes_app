@@ -41,14 +41,14 @@ class SearchPage extends ConsumerWidget {
         ),
         searchQuery != null
             ? const SearchResults()
-            : const _EmptySearchResultsSliver(),
+            : const _PlaceholderSearchResultsSliver(),
       ],
     );
   }
 }
 
-class _EmptySearchResultsSliver extends StatelessWidget {
-  const _EmptySearchResultsSliver({Key? key}) : super(key: key);
+class _PlaceholderSearchResultsSliver extends StatelessWidget {
+  const _PlaceholderSearchResultsSliver({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
