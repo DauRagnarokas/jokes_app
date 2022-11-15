@@ -10,13 +10,13 @@ class JokesRepository {
 
   Future<List<JokeCategory>> getCategories() async =>
       _service.getCollection(
-        path: 'https://api.chucknorris.io/jokes/categories',
+        path: 'categories',
         builder: (dynamic data) => JokeCategory.fromJson(data),
       );
 
   Future<Joke> getRandomJoke() async =>
       _service.getSingle(
-        path: 'https://api.chucknorris.io/jokes/random',
+        path: 'random',
         builder: (Map<String, dynamic> data) => Joke.fromJson(data),
       );
 
@@ -24,7 +24,7 @@ class JokesRepository {
     required JokeCategory category,
   }) async {
     return _service.getSingle(
-      path: 'https://api.chucknorris.io/jokes/random?category=${category.name}',
+      path: 'random?category=${category.name}',
       builder: (Map<String, dynamic> data) => Joke.fromJson(data),
     );
   }
@@ -34,7 +34,7 @@ class JokesRepository {
   }) async {
     try {
       return await _service.getSingle(
-        path: 'https://api.chucknorris.io/jokes/search?query=$query',
+        path: 'search?query=$query',
         builder: (Map<String, dynamic> data) {
           final List<Joke> items = [
             for (final item in data['result']) Joke.fromJson(item)

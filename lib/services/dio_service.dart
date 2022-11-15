@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 
 class DioService {
-  static final _instance = Dio();
+  static const _baseUrl = 'https://api.chucknorris.io/jokes/';
+  static final _instance = Dio(BaseOptions(baseUrl: _baseUrl));
 
   Future<List<T>> getCollection<T>({
     required String path,
