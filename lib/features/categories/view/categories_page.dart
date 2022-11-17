@@ -2,15 +2,15 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:jokes_app/core/widgets/error_handler.dart';
 import 'package:jokes_app/utils/string_extensions.dart';
 import '../../../models/joke.dart';
 import '../../../models/joke_category.dart';
 import '../../../utils/page_route_no_animation.dart';
+import '../../../widgets/error_handler.dart';
+import '../../../widgets/loader.dart';
 import '../../joke_single/view/joke_single_screen.dart';
 import '../../jokes/logic/jokes_providers.dart';
 import '../logic/random_joke_category_providers.dart';
-import '../../../core/widgets/loader.dart';
 import '../logic/random_joke_category_states.dart';
 
 part 'category_button.dart';

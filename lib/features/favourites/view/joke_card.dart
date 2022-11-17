@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:collection/collection.dart';
-import 'package:jokes_app/core/widgets/bounce_animation_widget.dart';
 
 import '../../../models/joke.dart';
+import '../../../widgets/bounce_animation_widget.dart';
 import '../logic/favourites_providers.dart';
 
 class JokeCardAnimated extends HookConsumerWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jokes_app/core/constants.dart';
+import 'package:jokes_app/constants.dart';
 
 import '../../features/navbar/view/navbar.dart';
 import '../../features/random_joke_button/view/random_joke_button.dart';

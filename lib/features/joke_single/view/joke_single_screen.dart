@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../core/widgets/main_scaffold.dart';
 import '../../../models/joke.dart';
+import '../../../widgets/main_scaffold.dart';
 import '../../favourites/view/joke_card.dart';
 
 class JokeSingleScreen extends StatelessWidget {

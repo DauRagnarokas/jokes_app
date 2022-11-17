@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../core/widgets/error_handler.dart';
-import '../../../core/widgets/loader.dart';
 import '../../../models/joke.dart';
+import '../../../widgets/error_handler.dart';
+import '../../../widgets/loader.dart';
 import '../../jokes/logic/jokes_providers.dart';
 
 class JokeSingleWidget extends ConsumerWidget {

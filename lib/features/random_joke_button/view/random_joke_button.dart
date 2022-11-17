@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../../../core/widgets/error_handler.dart';
 import '../../../utils/page_route_no_animation.dart';
-import '../../../core/widgets/loader.dart';
+import '../../../widgets/error_handler.dart';
+import '../../../widgets/loader.dart';
 import '../../joke_single/view/joke_single_screen.dart';
 import '../logic/random_joke_state_provider.dart';
 import '../logic/random_joke_states.dart';

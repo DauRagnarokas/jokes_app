@@ -1,6 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../../../core/constants.dart';
+import '../../../constants.dart';
 import '../../../services/hive_service.dart';
 import '../../../models/joke.dart';
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../../../core/providers/core_provider.dart';
 import '../../../models/nav_page.dart';
 import '../logic/navbar_providers.dart';
 

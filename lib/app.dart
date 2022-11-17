@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:jokes_app/core/widgets/error_handler.dart';
-import 'package:jokes_app/core/widgets/main_scaffold.dart';
 import 'package:jokes_app/features/splash/splash_screen.dart';
 import 'package:jokes_app/features/home/home_screen.dart';
+import 'package:jokes_app/providers/core_providers.dart';
 import 'package:jokes_app/themes/light_theme.dart';
-import 'core/providers/core_provider.dart';
+import 'package:jokes_app/widgets/error_handler.dart';
+import 'package:jokes_app/widgets/main_scaffold.dart';
 import 'features/favourites/logic/favourites_providers.dart';
 import 'features/internet_detector/logic/internet_detector_provider.dart';
 
